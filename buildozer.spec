@@ -8,6 +8,7 @@ version = 0.1
 requirements = python3,kivy
 orientation = portrait
 android.permissions = INTERNET
+android.accept_licenses = True
 android.api = 34
 android.minapi = 21
 android.ndk = 26b
