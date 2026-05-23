@@ -18,16 +18,10 @@ jobs:
           pip install --upgrade pip
           pip install buildozer kivy Cython
 
-      - name: Force Create Buildozer Android Licenses
-        run: |
-          mkdir -p ~/.buildozer/android/platform/android-sdk/licenses
-          echo -e "\n24106d7b5491deaa2312d11a713ee77d33c1a977" > ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
-          echo -e "\n85c6f5d856341415fde351b78c8fcd0072045d0c" >> ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
-          echo -e "\nbd08a2d6e3c15aa1d959733054a1be702580a6b5" >> ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
-          echo -e "\nM76a8f7c9e03d428bfb51fa12e6912384a2b6623" >> ~/.buildozer/android/platform/android-sdk/licenses/android-sdk-license
-
       - name: Build with Buildozer
-        run: buildozer android debug
+        run: |
+          id
+          buildozer android debug || buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
